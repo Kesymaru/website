@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';*/
+
+
+body {
+  margin: 0;
+  padding: 0;
+
+  height: 1500px;
+}
+
+.primary-toolbar {
+  position: fixed;
+  top: 0;
+  /*z-index: 2;*/
+}
+
+.secondary-toolbar {
+  font-size: 34px;
+  padding: 100px 20px 40px 20px !important;
+}
