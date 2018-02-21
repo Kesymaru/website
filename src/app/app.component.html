@@ -1,11 +1,26 @@
 <mat-toolbar color="primary"
              class="primary-toolbar"
-             [class.mat-elevation-z2]="primaryToolbarShadow">
-  <span *ngIf="primaryToolbarText">1 Text</span>
+             [class.mat-elevation-z21]="primaryToolbarShadow">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon aria-label="Main Menu">menu</mat-icon>
+  </button>
+  <h1 *ngIf="primaryToolbarText">Andrey Alfaro</h1>
+  <button mat-icon-button (click)="share()">
+    <mat-icon aria-label="Share">share</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-toolbar color="primary" class="secondary-toolbar">
-  <span *ngIf="!primaryToolbarText">2 Text</span>
+  <h1 *ngIf="!primaryToolbarText">Andrey Alfaro  picture</h1>
 </mat-toolbar>
-<div class="container">
-  here goes the content
-</div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-list role="list" *ngFor="let item of menuItems">
+      <mat-list-item role="listitem">{{ item }}</mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    here goes the main content
+  </mat-sidenav-content>
+</mat-sidenav-container>

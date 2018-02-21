@@ -2,24 +2,24 @@ import { NgModule } from '@angular/core';
 
 import {
   MatIconModule,
+  MatSidenavModule,
   MatToolbarModule,
-  MatGridListModule,
   MatMenuModule,
-  MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
-  MatChipsModule
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 
 const imports = [
   MatIconModule,
+  MatSidenavModule,
   MatToolbarModule,
-  MatGridListModule,
   MatMenuModule,
-  MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
-  MatChipsModule
+  MatListModule,
+  MatDialogModule
 ];
 
 @NgModule({

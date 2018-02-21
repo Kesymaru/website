@@ -14,10 +14,14 @@ body {
 .primary-toolbar {
   position: fixed;
   top: 0;
-  /*z-index: 2;*/
+  z-index: 2;
 }
 
 .secondary-toolbar {
   font-size: 34px;
   padding: 100px 20px 40px 20px !important;
+}
+
+mat-sidenav-container {
+  height: 100%;
 }
