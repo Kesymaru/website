@@ -1,13 +1,10 @@
 <mat-toolbar color="primary"
              class="primary-toolbar"
              [class.mat-elevation-z21]="primaryToolbarShadow">
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <mat-button-toggle (click)="sidenav.toggle()">
     <mat-icon aria-label="Main Menu">menu</mat-icon>
-  </button>
+  </mat-button-toggle>
   <h1 *ngIf="primaryToolbarText">Andrey Alfaro</h1>
-  <button mat-icon-button (click)="share()">
-    <mat-icon aria-label="Share">share</mat-icon>
-  </button>
 </mat-toolbar>
 <mat-toolbar color="primary" class="secondary-toolbar">
   <h1 *ngIf="!primaryToolbarText">Andrey Alfaro  picture</h1>

@@ -30,6 +30,11 @@ export class InformationComponent{
       text: 'July 3rd 1991',
     },
     {
+      icon: 'wc',
+      title: 'Gender',
+      text: 'Male'
+    },
+    {
       icon: 'phone',
       title: 'Phone',
       text: '+506 8734-3244',
@@ -52,14 +57,18 @@ export class InformationComponent{
       title: 'Linkedin',
       text: 'Andrey Alfaro',
       link: 'https://www.linkedin.com/in/andreyalfaro'
-    }
+    },
   ];
-
   public columnsToDisplay: string[] = ['icon', 'title', 'text'];
 
   constructor (private sanitizer: DomSanitizer){}
 
-  sanitize(url: string): string{
+  /**
+   * Sanitize the url links
+   * @param {string} url
+   * @returns {string}
+   */
+  sanitize(url: string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
