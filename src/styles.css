@@ -7,8 +7,6 @@
 body {
   margin: 0;
   padding: 0;
-
-  height: 1500px;
 }
 
 .primary-toolbar {
@@ -24,4 +22,21 @@ body {
 
 mat-sidenav-container {
   height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-cell.info-icon{
+  max-width: 40px;
+}
+
+.mat-cell.info-title{
+  max-width: 100px;
+}
+
+.mat-cell a{
+  color: white;
+  text-decoration: none;
 }

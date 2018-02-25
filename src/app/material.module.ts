@@ -8,7 +8,9 @@ import {
   MatButtonModule,
   MatProgressSpinnerModule,
   MatListModule,
-  MatDialogModule
+  MatDialogModule,
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 
 const imports = [
@@ -19,7 +21,9 @@ const imports = [
   MatButtonModule,
   MatProgressSpinnerModule,
   MatListModule,
-  MatDialogModule
+  MatDialogModule,
+  MatInputModule,
+  MatTableModule
 ];
 
 @NgModule({

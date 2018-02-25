@@ -1,0 +1,29 @@
+<h1>Information</h1>
+<p>Senior Full Stack developer with experience designing architectures for cloud and system apps, with a solid experience and technical background in the process of the development and design of web applications systems.</p>
+<p>Experience developing with the latest web standards and frameworks, design systems architectures and APIs for a wide range of applications and projects, solving the development challenges of the modern web systems in a scalable, maintainable and secure way.</p>
+<p>Passionate about the web development and the modern web design techniques and technologies, with 6 years of hands-on experience efficiently coding websites and applications. Also a proactive advisor for team developers with experience coaching and teaching to developers and students.</p>
+
+<mat-table #table [dataSource]="data">
+  <ng-container matColumnDef="icon">
+    <mat-header-cell *matHeaderCellDef> Icon </mat-header-cell>
+    <mat-cell *matCellDef="let info" class="info-icon">
+      <mat-icon>{{ info.icon }}</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+    <mat-cell *matCellDef="let info" class="info-title">
+      <b>{{ info.title }}</b>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="text">
+    <mat-header-cell *matHeaderCellDef> Text </mat-header-cell>
+    <mat-cell *matCellDef="let info">
+      <span *ngIf="!info.link">{{ info.text }}</span>
+      <a *ngIf="info.link" [href]="sanitize(info.link)" target="_blank">{{ info.text }}</a>
+    </mat-cell>
+  </ng-container>
+
+  <!--<mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>-->
+  <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+</mat-table>

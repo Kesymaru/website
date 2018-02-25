@@ -1,10 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import 'rxjs/add/operator/takeUntil';
-import {Subject} from "rxjs/Subject";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material";
-
-import {ShareDialogComponent} from "./share/share.component";
+import { Subject } from "rxjs/Subject";
 
 export const PRIMARY_TEXT_THRESHOULD:number = 25;
 export const PRIMARY_SHADOW_THRESHOULD:number = 78;
@@ -17,11 +14,32 @@ export const PRIMARY_SHADOW_THRESHOULD:number = 78;
 export class AppComponent implements OnInit, OnDestroy{
   public primaryToolbarText:boolean = false;
   public primaryToolbarShadow:boolean = false;
-  public menuItems = ['Information', 'Skills', 'Experience'];
+  public menuItems:any[] = [
+    {
+      title: 'Information',
+      icon: 'info'
+    },
+    {
+      title: 'Skills',
+      icon: 'code'
+    },
+    {
+      title: 'Experience',
+      icon: 'work'
+    },
+    {
+      title: 'Porfolio',
+      icon: 'assignment_ind'
+    },
+    {
+      title: 'Contact',
+      icon: 'email'
+    }
+  ];
 
   private _onDestroy = new Subject();
 
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
   ngOnInit() {
     fromEvent(window, 'scroll')
@@ -34,12 +52,9 @@ export class AppComponent implements OnInit, OnDestroy{
     this.primaryToolbarShadow = top >= PRIMARY_SHADOW_THRESHOULD;
   }
 
+  // TODO: share dialog
   share(){
-    console.log('share website', this.dialog);
-
-    let dialogRef = this.dialog.open(ShareDialogComponent, {
-      width: '250px',
-    });
+    console.log('todo share dialog')
   }
 
   ngOnDestroy() {
