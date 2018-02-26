@@ -1,4 +1,7 @@
-<h1>Information</h1>
+<h1>
+  <mat-icon>info</mat-icon>
+  Information
+</h1>
 <p>Senior Full Stack developer with experience designing architectures for cloud and system apps, with a solid experience and technical background in the process of the development and design of web applications systems.</p>
 <p>Experience developing with the latest web standards and frameworks, design systems architectures and APIs for a wide range of applications and projects, solving the development challenges of the modern web systems in a scalable, maintainable and secure way.</p>
 <p>Passionate about the web development and the modern web design techniques and technologies, with 6 years of hands-on experience efficiently coding websites and applications. Also a proactive advisor for team developers with experience coaching and teaching to developers and students.</p>
@@ -20,7 +23,10 @@
     <mat-header-cell *matHeaderCellDef> Text </mat-header-cell>
     <mat-cell *matCellDef="let info">
       <span *ngIf="!info.link">{{ info.text }}</span>
-      <a *ngIf="info.link" [href]="sanitize(info.link)" target="_blank">{{ info.text }}</a>
+      <a *ngIf="info.link" [href]="sanitize(info.link)" target="_blank">
+        <span *ngIf="!info.tooltip">{{ info.text }}</span>
+        <span *ngIf="info.tooltip" [matTooltip]="info.tooltip">{{ info.text }}</span>
+      </a>
     </mat-cell>
   </ng-container>
 

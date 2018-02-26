@@ -14,7 +14,7 @@ export const PRIMARY_SHADOW_THRESHOULD:number = 78;
 export class AppComponent implements OnInit, OnDestroy{
   public primaryToolbarText:boolean = false;
   public primaryToolbarShadow:boolean = false;
-  public menuItems:any[] = [
+  public menuItems:Menu[] = [
     {
       title: 'Information',
       icon: 'info'
@@ -60,4 +60,9 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     this._onDestroy.next();
   }
+}
+
+export interface Menu {
+  icon: string,
+  title: string,
 }

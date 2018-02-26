@@ -6,11 +6,13 @@ import {
   MatToolbarModule,
   MatMenuModule,
   MatButtonModule,
+  MatButtonToggleModule,
   MatProgressSpinnerModule,
   MatListModule,
   MatDialogModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatTooltipModule
 } from '@angular/material';
 
 const imports = [
@@ -19,11 +21,13 @@ const imports = [
   MatToolbarModule,
   MatMenuModule,
   MatButtonModule,
+  MatButtonToggleModule,
   MatProgressSpinnerModule,
   MatListModule,
   MatDialogModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatTooltipModule
 ];
 
 @NgModule({

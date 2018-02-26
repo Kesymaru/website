@@ -38,25 +38,29 @@ export class InformationComponent{
       icon: 'phone',
       title: 'Phone',
       text: '+506 8734-3244',
-      link: 'tel:+50687343244'
+      link: 'tel:+50687343244',
+      tooltip: 'Call Andrey Alfaro'
     },
     {
       icon: 'email',
       title: 'Email',
       text: 'andreyalfaro@gmail.com',
-      link: 'mailto:andreyalfaro@gmail.com'
+      link: 'mailto:andreyalfaro@gmail.com',
+      tooltip: 'Sent Email to Andrey Alfaro'
     },
     {
       icon: 'voice_chat',
       title: 'Skype',
       text: 'kesymaru',
-      link: 'skype:kesymaru?call'
+      link: 'skype:kesymaru?call',
+      tooltip: 'Open Skype'
     },
     {
       icon: 'business',
       title: 'Linkedin',
       text: 'Andrey Alfaro',
-      link: 'https://www.linkedin.com/in/andreyalfaro'
+      link: 'https://www.linkedin.com/in/andreyalfaro',
+      tooltip: 'Open Andrey Alfaro`s Linkedin'
     },
   ];
   public columnsToDisplay: string[] = ['icon', 'title', 'text'];
@@ -78,5 +82,6 @@ export interface Information {
   icon: string,
   title: string,
   text: string,
-  link?: string
+  link?: string,
+  tooltip?: string
 }
