@@ -1,0 +1,31 @@
+mat-chip{
+  display: flex !important;
+  flex-direction: row;
+
+  span{
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+
+  .text, .years {
+    display: flex;
+    justify-content: center;
+    padding: 2px 5px;
+    border: 1px solid white;
+    border-radius: 15px;
+  }
+  .years {
+    flex: 0 0 50px;
+  }
+
+  .text {
+    flex: 0 0 100px;
+  }
+}
+
+.skills {
+  .col {
+    margin-bottom: 10px;
+  }
+}

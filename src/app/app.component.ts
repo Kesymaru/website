@@ -36,6 +36,7 @@ export class AppComponent implements OnInit, OnDestroy{
       icon: 'email'
     }
   ];
+  public title:string = 'Andrey Alfaro - Full Stack Developer';
 
   private _onDestroy = new Subject();
 

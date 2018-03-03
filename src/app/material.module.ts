@@ -12,7 +12,9 @@ import {
   MatDialogModule,
   MatInputModule,
   MatTableModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatChipsModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 const imports = [
@@ -27,7 +29,9 @@ const imports = [
   MatDialogModule,
   MatInputModule,
   MatTableModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatChipsModule,
+  MatProgressBarModule
 ];
 
 @NgModule({
