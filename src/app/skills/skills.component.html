@@ -1,42 +1,42 @@
+<mat-chip-list>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2><mat-icon>code</mat-icon>Skills</h2>
+      </div>
+    </div>
+    <div class="row skills">
+      <div class="col col-sm-12 col-md-6 col-lg-3 "
+           *ngFor="let skill of skills">
+        <mat-chip selected="true"
+                  [color]="skill.total >= 4 ? 'primary' : (skill.total <= 2 ? 'accent' : 'warn')"
+                  [matTooltip]="skill.title + ' ' + skill.total + ' years'">
+          <span>{{ skill.title }} </span>
+          <span class="years">{{ skill.total }} years</span>
+        </mat-chip>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h2><mat-icon>code</mat-icon>Skills</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>
+          <mat-icon>languages</mat-icon>
+          Languages
+        </h2>
+      </div>
+    </div>
+    <div class="row skills">
+      <div class="col col-sm-12 col-md-6 col-lg-3 mat-chip-list"
+           *ngFor="let skill of languages">
+        <mat-chip selected="true"
+          [matTooltip]="skill.title +' '+ skill.total + '%'"
+          [color]="skill.total >= 75 ? 'primary' : (skill.total >= 25 ? 'warn' : 'accent')">
+          <span>{{ skill.title }}</span>
+          <span class="text">{{ skill.text }}</span>
+        </mat-chip>
+      </div>
     </div>
   </div>
-  <div class="row skills">
-    <div class="col col-sm-12 col-md-6 col-lg-3"
-         *ngFor="let skill of skills">
-      <mat-chip selected="true"
-                [color]="skill.total >= 4 ? 'primary' : (skill.total <= 2 ? 'accent' : 'warn')"
-                [matTooltip]="skill.title + ' ' + skill.total + ' years'">
-        <span>{{ skill.title }} </span>
-        <span class="years">{{ skill.total }} years</span>
-      </mat-chip>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>
-        <mat-icon>languages</mat-icon>
-        Languages
-      </h2>
-    </div>
-  </div>
-  <div class="row skills">
-    <div class="col col-sm-12 col-md-6 col-lg-3"
-         *ngFor="let skill of languages">
-      <mat-chip selected="true"
-        [matTooltip]="skill.title +' '+ skill.total + '%'"
-        [color]="skill.total >= 75 ? 'primary' : (skill.total >= 25 ? 'warn' : 'accent')">
-        <span>{{ skill.title }}</span>
-        <span class="text">{{ skill.text }}</span>
-      </mat-chip>
-    </div>
-  </div>
-</div>
-
+</mat-chip-list>

@@ -1,9 +1,9 @@
 <mat-toolbar color="primary"
              class="primary-toolbar"
              [class.mat-elevation-z21]="primaryToolbarShadow">
-  <mat-button-toggle (click)="sidenav.toggle()">
+  <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon aria-label="Main Menu">menu</mat-icon>
-  </mat-button-toggle>
+  </button>
   <h1 *ngIf="primaryToolbarText">{{ title }}</h1>
 </mat-toolbar>
 <mat-toolbar color="primary" class="secondary-toolbar">
@@ -22,10 +22,12 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <section><aa-information></aa-information></section>
-    <section><aa-skills></aa-skills></section>
-    <section><aa-experience></aa-experience></section>
-    <section><aa-porfolio></aa-porfolio></section>
-    <section><aa-contact></aa-contact></section>
+    <aa-information></aa-information>
+    <aa-skills></aa-skills>
+    <aa-experience></aa-experience>
+    <aa-porfolio></aa-porfolio>
+    <aa-contact></aa-contact>
+
+    <aa-footer></aa-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
