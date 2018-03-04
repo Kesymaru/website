@@ -7,6 +7,10 @@ import {Component} from "@angular/core";
 })
 
 export class ExperienceComponent{
+  private static readonly showNumber:number = 4;
+  public showMore:boolean = false;
+  public start:number = 0;
+  public end:number = ExperienceComponent.showNumber;
   public experiences:Experience[] = [
     {
       company: 'Epic Software',
@@ -40,6 +44,18 @@ export class ExperienceComponent{
     }
 
   ];
+
+  constructor() {
+    console.log('slice', this.start, this.end);
+  }
+
+  toggleMore() {
+    this.showMore = !this.showMore;
+    this.end = this.showMore
+      ? this.experiences.length
+      : 4;
+  }
+
 }
 
 export interface Experience{

@@ -10,7 +10,7 @@
     <div class="col">
       <div class="timeline">
         <div class="timeline-container"
-             *ngFor="let exp of experiences; let i = index"
+             *ngFor="let exp of experiences | slice:start:end; let i = index"
              [ngClass]="i % 2 == 0 ? 'right' : 'left'">
           <div class="timeline-year"
                [matTooltip]="exp.title+' '+exp.start">
@@ -24,4 +24,15 @@
       </div>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <button  mat-raised-button
+               color="warn"
+               (click)="toggleMore()">
+        {{ showMore ? 'Show less' : 'Show more' }}
+        <mat-icon>{{ showMore ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
+
