@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row skills">
-      <div class="col col-sm-12 col-md-6 col-lg-3 "
+      <div class="col-sm-12 col-md-6 col-lg-3 "
            *ngFor="let skill of skills">
         <mat-chip selected="true"
                   [color]="skill.total >= 4 ? 'primary' : (skill.total <= 2 ? 'accent' : 'warn')"
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="row skills">
-      <div class="col col-sm-12 col-md-6 col-lg-3 mat-chip-list"
+      <div class="col-sm-12 col-md-6 col-lg-3 mat-chip-list"
            *ngFor="let skill of languages">
         <mat-chip selected="true"
           [matTooltip]="skill.title +' '+ skill.total + '%'"

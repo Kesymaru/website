@@ -53,7 +53,7 @@ export class ExperienceComponent{
     this.showMore = !this.showMore;
     this.end = this.showMore
       ? this.experiences.length
-      : 4;
+      : ExperienceComponent.showNumber;
   }
 
 }

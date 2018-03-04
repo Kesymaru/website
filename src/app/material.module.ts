@@ -14,7 +14,7 @@ import {
   MatTableModule,
   MatTooltipModule,
   MatChipsModule,
-  MatProgressBarModule
+  MatProgressBarModule,
 } from '@angular/material';
 
 const imports = [

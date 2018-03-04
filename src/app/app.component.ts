@@ -1,10 +1,24 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BreakpointObserver } from "@angular/cdk/layout";
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import 'rxjs/add/operator/takeUntil';
 import { Subject } from "rxjs/Subject";
 
 export const PRIMARY_TEXT_THRESHOULD:number = 25;
 export const PRIMARY_SHADOW_THRESHOULD:number = 78;
+
+const DESKTOP_SIDENAV:SidenavConfig = {
+  mode: 'side',
+  opened: true,
+};
+const MOBILE_SIDENAV:SidenavConfig = {
+  mode: 'over',
+  opened: false,
+};
+const Breakpoints:any = {
+  mobile: '(max-width: 576px)',
+  desktop: '(min-width: 768px)',
+};
 
 @Component({
   selector: 'aa-root',
@@ -37,10 +51,22 @@ export class AppComponent implements OnInit, OnDestroy{
     }
   ];
   public title:string = 'Andrey Alfaro - Full Stack Developer';
+  public sidenavConfig:SidenavConfig = DESKTOP_SIDENAV;
 
   private _onDestroy = new Subject();
 
-  constructor() {}
+  constructor(breakpoint: BreakpointObserver) {
+    // mobile breakpoint
+    breakpoint.observe(Breakpoints.mobile)
+      .subscribe(result => {
+        if (result.matches) this.sidenavConfig = MOBILE_SIDENAV;
+      });
+    // desktop breakpoint
+    breakpoint.observe(Breakpoints.desktop)
+      .subscribe(result => {
+        if (result.matches) this.sidenavConfig = DESKTOP_SIDENAV;
+      });
+  }
 
   ngOnInit() {
     fromEvent(window, 'scroll')
@@ -53,11 +79,6 @@ export class AppComponent implements OnInit, OnDestroy{
     this.primaryToolbarShadow = top >= PRIMARY_SHADOW_THRESHOULD;
   }
 
-  // TODO: share dialog
-  share(){
-    console.log('todo share dialog')
-  }
-
   ngOnDestroy() {
     this._onDestroy.next();
   }
@@ -66,4 +87,9 @@ export class AppComponent implements OnInit, OnDestroy{
 export interface Menu {
   icon: string,
   title: string,
+}
+
+export interface SidenavConfig {
+  mode: string,
+  opened: boolean
 }
