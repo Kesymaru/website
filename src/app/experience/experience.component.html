@@ -2,7 +2,26 @@
   <div class="row">
     <div class="col">
       <h1><mat-icon>work</mat-icon>Experience</h1>
-      <p>Experience data goes here!</p>
     </div>
   </div>
 </section>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="timeline">
+        <div class="timeline-container"
+             *ngFor="let exp of experiences; let i = index"
+             [ngClass]="i % 2 == 0 ? 'right' : 'left'">
+          <div class="timeline-year"
+               [matTooltip]="exp.title+' '+exp.start">
+            {{ exp.year }}
+          </div>
+          <div class="timeline-content">
+            <h2>{{ exp.title }}</h2>
+            <p>{{ exp.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -57,7 +57,7 @@ export class SkillsComponent {
   ];
   public startedYear:number = 2011;
 
-  constructor():void {
+  constructor() {
     let year:number = new Date().getFullYear();
     let years = year - this.startedYear;
     /*this.skills.map(skill => {
