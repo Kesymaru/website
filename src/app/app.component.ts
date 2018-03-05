@@ -1,8 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver } from "@angular/cdk/layout";
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import 'rxjs/add/operator/takeUntil';
-import { Subject } from "rxjs/Subject";
 
 export const PRIMARY_TEXT_THRESHOULD:number = 25;
 export const PRIMARY_SHADOW_THRESHOULD:number = 78;
@@ -25,7 +22,7 @@ const Breakpoints:any = {
   templateUrl: './app.component.html'
 })
 
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent {
   public primaryToolbarText:boolean = false;
   public primaryToolbarShadow:boolean = false;
   public menuItems:Menu[] = [
@@ -50,38 +47,30 @@ export class AppComponent implements OnInit, OnDestroy{
       icon: 'email'
     }
   ];
-  public title:string = 'Andrey Alfaro - Full Stack Developer';
+  public title:string = 'Andrey Alfaro';
+  public isMobile:boolean = false;
   public sidenavConfig:SidenavConfig = DESKTOP_SIDENAV;
-
-  private _onDestroy = new Subject();
 
   constructor(breakpoint: BreakpointObserver) {
     // mobile breakpoint
-    breakpoint.observe(Breakpoints.mobile)
-      .subscribe(result => {
-        if (result.matches) this.sidenavConfig = MOBILE_SIDENAV;
-      });
+    breakpoint.observe(Breakpoints.mobile).subscribe(this.onMobile);
+
     // desktop breakpoint
-    breakpoint.observe(Breakpoints.desktop)
-      .subscribe(result => {
-        if (result.matches) this.sidenavConfig = DESKTOP_SIDENAV;
-      });
+    breakpoint.observe(Breakpoints.desktop).subscribe(this.onDesktop);
   }
 
-  ngOnInit() {
-    fromEvent(window, 'scroll')
-      .takeUntil(this._onDestroy)
-      .subscribe( ()  => this.determinateHeader(window.scrollY))
+  private onMobile(result:any):void {
+    if (!result.matches) return;
+    this.isMobile = true;
+    this.sidenavConfig = MOBILE_SIDENAV;
   }
 
-  determinateHeader(top: number): void {
-    this.primaryToolbarText = top >= PRIMARY_TEXT_THRESHOULD;
-    this.primaryToolbarShadow = top >= PRIMARY_SHADOW_THRESHOULD;
+  private onDesktop(result:any):void {
+    if (!result.matches) return;
+    this.isMobile = false;
+    this.sidenavConfig = DESKTOP_SIDENAV;
   }
 
-  ngOnDestroy() {
-    this._onDestroy.next();
-  }
 }
 
 export interface Menu {

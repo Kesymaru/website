@@ -15,14 +15,9 @@ export class InformationComponent{
       text: 'Carlos Andrey Alfaro Alvarado',
     },
     {
-      icon: 'home',
+      icon: 'place',
       title: 'Location',
       text: 'Costa Rica, Heredia',
-    },
-    {
-      icon: 'place',
-      title: 'Place of birth',
-      text: 'Costa Rica',
     },
     {
       icon: 'date_range',

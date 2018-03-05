@@ -1,9 +1,12 @@
 <mat-toolbar color="primary"
              class="primary-toolbar mat-elevation-z21">
-  <button mat-icon-button (click)="sidenav.toggle()">
+  <button mat-icon-button *ngIf="isMobile"
+          (click)="sidenav.toggle()">
     <mat-icon aria-label="Main Menu">menu</mat-icon>
   </button>
-  <h1>{{ title }}</h1>
+  <h1 [class.text-center]="isMobile">
+    {{ title }}
+  </h1>
 </mat-toolbar>
 
 <mat-sidenav-container>

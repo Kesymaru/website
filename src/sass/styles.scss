@@ -5,12 +5,19 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .primary-toolbar {
   position: fixed;
   top: 0;
   z-index: 3;
+
+  h1.text-center {
+    margin-right: 40px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .secondary-toolbar {
@@ -28,6 +35,7 @@ body {
 
 .mat-sidenav {
   padding-top: 65px;
+  width: 200px;
 }
 
 .mat-cell.info-icon{
@@ -41,4 +49,8 @@ body {
 .mat-cell a{
   color: white;
   text-decoration: none;
+}
+
+.full-width {
+  width: 100%;
 }
