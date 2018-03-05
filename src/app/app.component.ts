@@ -53,22 +53,22 @@ export class AppComponent {
 
   constructor(breakpoint: BreakpointObserver) {
     // mobile breakpoint
-    breakpoint.observe(Breakpoints.mobile).subscribe(this.onMobile);
+    breakpoint.observe(Breakpoints.mobile)
+      .subscribe(r => this.onMobile(r));
 
     // desktop breakpoint
-    breakpoint.observe(Breakpoints.desktop).subscribe(this.onDesktop);
+    breakpoint.observe(Breakpoints.desktop)
+      .subscribe(r => this.onDesktop(r));
   }
 
   private onMobile(result:any):void {
-    if (!result.matches) return;
-    this.isMobile = true;
-    this.sidenavConfig = MOBILE_SIDENAV;
+    this.isMobile = result.matches;
+    if (result.matches) this.sidenavConfig = MOBILE_SIDENAV;
   }
 
   private onDesktop(result:any):void {
-    if (!result.matches) return;
-    this.isMobile = false;
-    this.sidenavConfig = DESKTOP_SIDENAV;
+    console.log('desktop', result);
+    if (result.matches) this.sidenavConfig = DESKTOP_SIDENAV;
   }
 
 }
