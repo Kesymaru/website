@@ -10,20 +10,24 @@ body {
 .primary-toolbar {
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .secondary-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
   font-size: 34px;
   padding: 100px 20px 40px 20px !important;
 }
 
-mat-sidenav-container {
+.mat-sidenav-container {
   height: 100%;
+  padding-top: 65px;
 }
 
-.full-width {
-  width: 100%;
+.mat-sidenav {
+  padding-top: 65px;
 }
 
 .mat-cell.info-icon{
