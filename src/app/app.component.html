@@ -4,10 +4,15 @@
     <mat-icon aria-label="Navigation Menu">menu</mat-icon>
   </button>
   <h1 [class.text-center]="isMobile">{{ title }}</h1>
-  <button mat-icon-button>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon aria-label="Main Menu">more_vert</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
 </mat-toolbar>
+
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav
@@ -26,7 +31,7 @@
     <aa-information></aa-information>
     <aa-skills></aa-skills>
     <aa-experience></aa-experience>
-    <aa-porfolio></aa-porfolio>
+    <!--<aa-porfolio></aa-porfolio>-->
     <aa-contact></aa-contact>
     <aa-footer></aa-footer>
   </mat-sidenav-content>
