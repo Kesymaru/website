@@ -1,5 +1,11 @@
+@import '~@angular/material/theming';
+@import "~sass/app.theme";
+
 img {
   width: 100px;
-  border: 5px solid white;
+  height: 100px;
+  margin: 20px 0 0 10px;
+  background-color: mat-color($app-accent);
+  border: 5px solid mat-color($app-primary);
   border-radius: 50%;
 }
