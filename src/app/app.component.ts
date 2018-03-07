@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { BreakpointObserver } from "@angular/cdk/layout";
+import { OverlayContainer } from "@angular/cdk/overlay";
 
 export const PRIMARY_TEXT_THRESHOULD:number = 25;
 export const PRIMARY_SHADOW_THRESHOULD:number = 78;
@@ -23,8 +24,6 @@ const Breakpoints:any = {
 })
 
 export class AppComponent {
-  public primaryToolbarText:boolean = false;
-  public primaryToolbarShadow:boolean = false;
   public menuItems:Menu[] = [
     {
       title: 'Information',
@@ -50,8 +49,27 @@ export class AppComponent {
   public title:string = 'Andrey Alfaro';
   public isMobile:boolean = false;
   public sidenavConfig:SidenavConfig = DESKTOP_SIDENAV;
+  public themes:Theme[] = [
+    {
+      name: 'Light theme',
+      className: 'light-theme',
+      dark: false
+    },
+    {
+      name: 'Dark theme',
+      className: 'dark-theme',
+      dark: true
+    }
+  ];
 
-  constructor(breakpoint: BreakpointObserver) {
+  @HostBinding('class') componentCssClass;
+
+  constructor(
+    public breakpoint: BreakpointObserver,
+    public overlayContainer: OverlayContainer) {
+    // se default theme
+    this.setTheme(this.themes[1]);
+
     // mobile breakpoint
     breakpoint.observe(Breakpoints.mobile)
       .subscribe(r => this.onMobile(r));
@@ -71,6 +89,12 @@ export class AppComponent {
     if (result.matches) this.sidenavConfig = DESKTOP_SIDENAV;
   }
 
+  public setTheme(theme:Theme):void {
+    console.log('set the theme', theme);
+
+    this.overlayContainer.getContainerElement().classList.add(theme.className);
+    this.componentCssClass = theme.className;
+  }
 }
 
 export interface Menu {
@@ -81,4 +105,10 @@ export interface Menu {
 export interface SidenavConfig {
   mode: string,
   opened: boolean
+}
+
+export interface Theme {
+  name: string,
+  className: string,
+  dark: boolean
 }
