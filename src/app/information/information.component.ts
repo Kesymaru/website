@@ -6,7 +6,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   templateUrl: './information.component.html'
 })
 
-export class InformationComponent{
+export class InformationComponent {
 
   public data: Information[] = [
     {
