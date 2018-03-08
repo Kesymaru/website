@@ -1,0 +1,25 @@
+
+// Style for about compoenet
+@mixin about-compoenent($theme){
+
+  // Extract variable form theme
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  aa-about {
+    img {
+      width: 125px;
+      height: 125px;
+      margin: 20px 0 0 10px;
+      background-color: mat-color($warn);
+      border: 5px solid mat-color($warn);
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 5px 0;
+    }
+  }
+
+}

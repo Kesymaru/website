@@ -1,0 +1,8 @@
+@import '~app/experience/_experience.component';
+@import '~app/about/_about.component';
+
+// Style all the custom components with the passed theme
+@mixin app-theme($theme){
+  @include experience-component($theme);
+  @include about-compoenent($theme);
+}
