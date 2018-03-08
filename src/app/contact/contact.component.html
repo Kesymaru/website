@@ -12,14 +12,18 @@
         </mat-form-field>
 
         <mat-form-field class="full-width">
+          <input matInput placeholder="Subject:" required="true">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
           <textarea matInput placeholder="Message:" required="true"></textarea>
         </mat-form-field>
 
-        <div>
+        <div class="row">
           <button type="reset" mat-raised-button>
             Clear <mat-icon>clear</mat-icon>
           </button>
-          <button mat-raised-button color="primary">
+          <button mat-raised-button class="align-content-end" color="primary">
             Send <mat-icon>send</mat-icon>
           </button>
         </div>
