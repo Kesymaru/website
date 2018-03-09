@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { OverlayContainer } from "@angular/cdk/overlay";
 
@@ -23,7 +23,7 @@ const Breakpoints:any = {
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   public menuItems:Menu[] = [
     {
       title: 'Information',
@@ -61,14 +61,13 @@ export class AppComponent {
       dark: true
     }
   ];
+  public theme:Theme = this.themes[1];
 
   @HostBinding('class') componentCssClass;
 
   constructor(
     public breakpoint: BreakpointObserver,
     public overlayContainer: OverlayContainer) {
-    // se default theme
-    this.setTheme(this.themes[1]);
 
     // mobile breakpoint
     breakpoint.observe(Breakpoints.mobile)
@@ -90,10 +89,16 @@ export class AppComponent {
   }
 
   public setTheme(theme:Theme):void {
-    console.log('set the theme', theme);
+    this.theme = theme;
+    console.log('set the theme', this.theme);
 
-    this.overlayContainer.getContainerElement().classList.add(theme.className);
-    this.componentCssClass = theme.className;
+    this.overlayContainer.getContainerElement().classList.add(this.theme.className);
+    this.componentCssClass = this.theme.className;
+  }
+
+  ngOnInit(): void{
+    // default theme
+    this.setTheme(this.themes[1]);
   }
 }
 
