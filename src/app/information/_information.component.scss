@@ -1,0 +1,23 @@
+
+@mixin information-component($theme){
+
+  // Extract variable form theme
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .mat-cell.info-icon{
+    max-width: 40px;
+  }
+
+  .mat-cell.info-title{
+    max-width: 100px;
+  }
+
+  .mat-cell a{
+    color: mat-color($foreground, text);
+    text-decoration: none;
+  }
+}
