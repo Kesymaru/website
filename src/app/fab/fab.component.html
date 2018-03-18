@@ -1,0 +1,9 @@
+<div class="fab-actions" *ngIf="show">
+  <button *ngFor="let action of actions"
+          mat-fab [color]="primary">
+    {{ action.title}}
+  </button>
+</div>
+<button class="fab-button mat-elevation-z21" mat-fab (click)="toggle()" color="primary">
+  Primary
+</button>

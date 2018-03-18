@@ -44,9 +44,7 @@ export class ExperienceComponent{
 
   ];
 
-  constructor() {
-    console.log('slice', this.start, this.end);
-  }
+  constructor() {}
 
   toggleMore() {
     this.showMore = !this.showMore;

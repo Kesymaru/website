@@ -13,6 +13,7 @@ import { PorfolioComponent } from "./porfolio/porfolio.component";
 import { SkillsComponent } from './skills/skills.component';
 import { ExperienceComponent } from "./experience/experience.component";
 import { FooterComponent } from "./footer/footer.component";
+import { FabComponent } from "./fab/fab.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from "./footer/footer.component";
     PorfolioComponent,
     SkillsComponent,
     ExperienceComponent,
-    FooterComponent
+    FooterComponent,
+    FabComponent
   ],
   imports: [
     BrowserModule,

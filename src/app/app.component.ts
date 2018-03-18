@@ -63,6 +63,8 @@ export class AppComponent implements OnInit {
   ];
   public theme:Theme = this.themes[1];
 
+  private container:any = null;
+
   @HostBinding('class') componentCssClass;
 
   constructor(
@@ -89,14 +91,19 @@ export class AppComponent implements OnInit {
   }
 
   public setTheme(theme:Theme):void {
+    // remove previus theme class
+    this.container.classList.remove(this.theme.className);
     this.theme = theme;
-    console.log('set the theme', this.theme);
 
-    this.overlayContainer.getContainerElement().classList.add(this.theme.className);
+    // set theme class on the element
+    this.container.classList.add(this.theme.className);
     this.componentCssClass = this.theme.className;
   }
 
   ngOnInit(): void{
+    // set the element
+    this.container = this.overlayContainer.getContainerElement();
+
     // default theme
     this.setTheme(this.themes[1]);
   }
