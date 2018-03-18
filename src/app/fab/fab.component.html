@@ -4,6 +4,9 @@
     {{ action.title}}
   </button>
 </div>
-<button class="fab-button mat-elevation-z21" mat-fab (click)="toggle()" color="primary">
+<button class="fab-button mat-elevation-z21" mat-fab
+        [style.bottom]="top"
+        (click)="toggle()"
+        color="primary">
   Primary
 </button>

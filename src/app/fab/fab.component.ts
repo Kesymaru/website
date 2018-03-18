@@ -19,6 +19,10 @@ export class FabComponent implements OnInit, OnDestroy {
     title: 'Test',
     color: 'accent'
   }];
+  public top:string = '35px';
+
+  private height:number = 0;
+  private max:number = 0;
 
   constructor() {}
 
@@ -28,7 +32,10 @@ export class FabComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit():void {
-    console.log('fab on init');
+    this.height = document.body.offsetHeight;
+    this.max = document.documentElement.clientHeight;
+
+    console.log('init fab', this.height, this.max);
 
     fromEvent(window, 'scroll')
       // .takeUntil(this._onDestroy)
@@ -36,7 +43,14 @@ export class FabComponent implements OnInit, OnDestroy {
   }
 
   private onScroll(top: number):void {
-    console.log('scroll', document.body.offsetHeight, top, (document.body.offsetHeight - top));
+    let diff = this.height - top;
+    console.log('diff', this.height, top, this.max, diff);
+
+    if(diff <= this.max) this.top = '100px';
+    else this.top = '35px';
+
+    console.log('top', this.top);
+
     // this.primaryToolbarText = top >= PRIMARY_TEXT_THRESHOULD;
     // this.primaryToolbarShadow = top >= PRIMARY_SHADOW_THRESHOULD;
   }
