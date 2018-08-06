@@ -14,6 +14,7 @@
                type="text"
                required="true"
                #name="ngModel">
+        <mat-hint>Full name.</mat-hint>
         <div *ngIf="contactForm.submitted && name.invalid">
           <mat-error *ngIf="name.errors?.required">
             Name is required
@@ -30,6 +31,7 @@
                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                required="true"
                #email="ngModel">
+        <mat-hint>Email address.</mat-hint>
         <div *ngIf="contactForm.submitted && email.invalid">
           <mat-error *ngIf="email.errors.required">
             Email is <strong>required</strong>
@@ -42,11 +44,32 @@
 
       <mat-form-field class="full-width">
         <input matInput
+               [(ngModel)]="data.phone"
+               name="phone"
+               placeholder="Phone:"
+               type="text"
+               required="true"
+               [pattern]="phonePattern"
+               #phone="ngModel">
+        <mat-hint>Phone number with country code.</mat-hint>
+        <div *ngIf="contactForm.submitted && name.invalid">
+          <mat-error *ngIf="phone.errors.required">
+            Phone is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="phone.errors.pattern">
+            Phone is invalid
+          </mat-error>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput
                [(ngModel)]="data.subject"
                name="subject"
                placeholder="Subject:"
                required="true"
                #subject="ngModel">
+        <mat-hint>Email subject.</mat-hint>
         <div *ngIf="contactForm.submitted && subject.invalid">
           <mat-error *ngIf="subject.errors.required">
             Subject is required
@@ -61,6 +84,7 @@
                   placeholder="Message:"
                   required="true"
                   #message="ngModel"></textarea>
+        <mat-hint>Email message.</mat-hint>
         <div *ngIf="contactForm.submitted && message.invalid">
           <mat-error *ngIf="message.errors.required">
             Message is required
@@ -70,7 +94,7 @@
     </div>
     <div class="row">
       <mat-checkbox [(ngModel)]="data.sendResume" name="sendResume">
-        Sent me your resume by email.
+        Sent me a resume by email.
       </mat-checkbox>
     </div>
 

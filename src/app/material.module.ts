@@ -15,7 +15,8 @@ import {
   MatTooltipModule,
   MatChipsModule,
   MatProgressBarModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 const imports = [
@@ -33,7 +34,8 @@ const imports = [
   MatTooltipModule,
   MatChipsModule,
   MatProgressBarModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
