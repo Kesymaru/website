@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import 'rxjs/add/operator/takeUntil';
-import { Subject } from "rxjs/Subject";
+import { fromEvent ,  Subject } from 'rxjs';
 
 @Component({
   selector: 'aa-fab',

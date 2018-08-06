@@ -1,0 +1,164 @@
+@import "~bootstrap/scss/bootstrap-grid";
+
+// Mixing for the timeline arrow
+@mixin timeline-arrow($theme, $direcction: "right") {
+  // Theme variables
+  $primary: map-get($theme, primary);
+  //$accent: map-get($theme, accent);
+  //$warn: map-get($theme, warn);
+
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 20px;
+  width: 0;
+  z-index: 1;
+  border: medium solid mat-color($primary);
+
+  @if $direcction == "right" {
+    left: 25px;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent mat-color($primary) transparent transparent;
+  } @else {
+    right: 25px;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent mat-color($primary);
+  }
+}
+
+// Timeline circle
+@mixin timeline-circle($theme, $direction: "center"){
+  // Theme variables
+  //$primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: mat-color($warn);
+  border: 5px solid mat-color($accent);;
+  border-radius: 50%;
+
+  @if $direction == "center" {
+    right: -15px;
+  }
+  @if $direction == "right" {
+    right: 0;
+  }
+  @if $direction == "left" {
+    left: -15px;
+  }
+}
+
+// Mixins to style the experience component
+@mixin experience-component($theme){
+  // Extract variable from theme
+  $primary: map-get($theme, primary);
+  //$accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  // Timeline ruler
+  .timeline {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+
+    // timeline rule
+    &::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      background-color: mat-color($warn);
+      top: 0;
+      bottom: 0;
+    }
+
+    @include media-breakpoint-between(xs, sm) {
+      padding-left: 40px;
+
+      &::after {
+        left: 0;
+        margin-left: 37px;
+      }
+    }
+
+    @include media-breakpoint-between(md, xl) {
+      padding-left: 0;
+
+      &::after {
+        left: 50%;
+        margin-left: -3px;
+      }
+    }
+
+    // Container around content
+    .timeline-container {
+      position: relative;
+      padding: 10px 40px;
+      background-color: inherit;
+
+      // timeline content
+      .timeline-content {
+        position: relative;
+        padding: 10px;
+        background-color: mat-color($primary);
+        border: none;
+        border-radius: 5px;
+
+        h2 {
+          margin: 0;
+          font-size: 1.2em;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      @include media-breakpoint-between(xs, sm) {
+        &.right {
+          left: 0;
+
+          &::before { @include timeline-arrow($theme, 'right'); }
+        }
+
+        &.left {
+          left: 0;
+
+          &::before { @include timeline-arrow($theme, 'right'); }
+        }
+
+        /* timeline circle */
+        .timeline-year { @include timeline-circle($theme, "left"); }
+      }
+
+      @include media-breakpoint-between(md, xl) {
+        width: 50%;
+
+        &.right {
+          left: 0;
+
+          &::after { @include timeline-arrow($theme, 'left'); }
+
+          /* timeline circle */
+          .timeline-year { @include timeline-circle($theme, "center"); }
+        }
+
+        &.left {
+          left: 0;
+          margin-left: 50%;
+
+          &::before { @include timeline-arrow($theme, 'right'); }
+
+          /* timeline circle */
+          .timeline-year { @include timeline-circle($theme, "left"); }
+        }
+      }
+    }
+  }
+}
+
+

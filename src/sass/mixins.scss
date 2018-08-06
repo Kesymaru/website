@@ -1,6 +1,6 @@
-@import '~app/experience/_experience.component';
-@import '~app/about/_about.component';
-@import '~app/information/_information.component';
+@import '~app/experience/experience.component';
+@import '~app/about/about.component';
+@import '~app/information/information.component';
 
 // Style all the custom components with the passed theme
 @mixin app-theme($theme){
