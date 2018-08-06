@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { OverlayContainer } from "@angular/cdk/overlay";
 
@@ -27,23 +27,28 @@ export class AppComponent implements OnInit {
   public menuItems:Menu[] = [
     {
       title: 'Information',
-      icon: 'info'
+      icon: 'info',
+      router: 'info'
     },
     {
       title: 'Skills',
-      icon: 'code'
+      icon: 'code',
+      router: 'skills'
     },
     {
       title: 'Experience',
-      icon: 'work'
+      icon: 'work',
+      router: 'experience'
     },
     {
       title: 'Porfolio',
-      icon: 'assignment_ind'
+      icon: 'assignment_ind',
+      router: 'porfolio'
     },
     {
       title: 'Contact',
-      icon: 'email'
+      icon: 'email',
+      router: 'contact'
     }
   ];
   public title:string = 'Andrey Alfaro';

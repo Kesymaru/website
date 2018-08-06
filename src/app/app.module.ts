@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule} from '@angular/cdk/overlay';
+import { CommonModule } from "@angular/common";
+import { RouterModule } from '@angular/router';
 
+import { routes } from './app-routing.module';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
@@ -15,6 +18,8 @@ import { ExperienceComponent } from "./experience/experience.component";
 import { FooterComponent } from "./footer/footer.component";
 import { FabComponent } from "./fab/fab.component";
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,15 +31,20 @@ import { FabComponent } from "./fab/fab.component";
     ExperienceComponent,
     FooterComponent,
     FabComponent
+
+    // FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     OverlayModule,
-    MaterialModule
+    CommonModule,
+    MaterialModule,
+
+    RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 
 export class AppModule { }
