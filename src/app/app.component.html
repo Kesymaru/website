@@ -23,13 +23,13 @@
                [mode]="sidenavConfig.mode"
                [opened]="sidenavConfig.opened">
     <aa-about></aa-about>
-    <mat-list role="list" *ngFor="let item of menuItems">
-      <mat-list-item role="listitem" [routerLink]="item.router">
+    <mat-nav-list role="list" *ngFor="let item of menuItems">
+      <a mat-list-item role="listitem" [routerLink]="item.router">
         {{ item.title }}
         <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
-      </mat-list-item>
+      </a>
       <mat-divider></mat-divider>
-    </mat-list>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
    <!-- <aa-information></aa-information>
@@ -37,11 +37,13 @@
     <aa-experience></aa-experience>
     &lt;!&ndash;<aa-porfolio></aa-porfolio>&ndash;&gt;
     <aa-contact></aa-contact>-->
+
     <router-outlet></router-outlet>
 
     <aa-footer></aa-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
 <!--<aa-fab></aa-fab>-->
 
 <!--
