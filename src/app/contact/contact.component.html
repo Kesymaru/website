@@ -4,30 +4,81 @@
       <h2><mat-icon>email</mat-icon>Contact</h2>
     </div>
   </div>
-  <form class="col">
+  <form class="col" name="form" (ngSubmit)="contactForm.form.valid && onSubmit()" #contactForm="ngForm" novalidate>
     <div class="row">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name:" required="true">
+        <input matInput
+               [(ngModel)]="data.name"
+               name="name"
+               placeholder="Name:"
+               type="text"
+               required="true"
+               #name="ngModel">
+        <div *ngIf="contactForm.submitted && name.invalid">
+          <mat-error *ngIf="name.errors?.required">
+            Name is required
+          </mat-error>
+        </div>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email:" required="true">
+        <input matInput
+               [(ngModel)]="data.email"
+               name="email"
+               placeholder="Email:"
+               type="text"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+               required="true"
+               #email="ngModel">
+        <div *ngIf="contactForm.submitted && email.invalid">
+          <mat-error *ngIf="email.errors.required">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="!!email.errors.pattern">
+            Please enter a valid email address
+          </mat-error>
+        </div>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Subject:" required="true">
+        <input matInput
+               [(ngModel)]="data.subject"
+               name="subject"
+               placeholder="Subject:"
+               required="true"
+               #subject="ngModel">
+        <div *ngIf="contactForm.submitted && subject.invalid">
+          <mat-error *ngIf="subject.errors.required">
+            Subject is required
+          </mat-error>
+        </div>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <textarea matInput placeholder="Message:" required="true"></textarea>
+        <textarea matInput
+                  [(ngModel)]="data.message"
+                  name="message"
+                  placeholder="Message:"
+                  required="true"
+                  #message="ngModel"></textarea>
+        <div *ngIf="contactForm.submitted && message.invalid">
+          <mat-error *ngIf="message.errors.required">
+            Message is required
+          </mat-error>
+        </div>
       </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-checkbox [(ngModel)]="data.sendResume" name="sendResume">
+        Sent me your resume by email.
+      </mat-checkbox>
     </div>
 
     <div class="row justify-content-between">
       <button type="reset" mat-raised-button>
         <mat-icon>clear</mat-icon>Clear
       </button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button type="submit" color="primary">
         <mat-icon>send</mat-icon>Send
       </button>
     </div>
