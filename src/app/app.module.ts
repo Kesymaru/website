@@ -17,7 +17,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ExperienceComponent } from "./experience/experience.component";
 import { FooterComponent } from "./footer/footer.component";
 import { FabComponent } from "./fab/fab.component";
-
+import { ResumeDialog } from "./resumeDialog/resumeDialog.component";
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { FabComponent } from "./fab/fab.component";
     SkillsComponent,
     ExperienceComponent,
     FooterComponent,
-    // FabComponent
+    // FabComponent,
+    ResumeDialog
   ],
   imports: [
     BrowserModule,
@@ -39,10 +40,11 @@ import { FabComponent } from "./fab/fab.component";
     MaterialModule,
     FormsModule,
 
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [ ResumeDialog ]
 })
 
 export class AppModule { }

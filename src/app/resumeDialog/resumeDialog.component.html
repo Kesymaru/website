@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Andrey`s Resume</h2>
+<mat-dialog-content>
+  How do you want to get my resume?
+
+  <mat-list role="list">
+    <mat-list-item role="listitem" (click)="download()">
+      <mat-icon mat-list-icon>file_download</mat-icon>
+      <h4 mat-line>Download</h4>
+      <p mat-line>Download Resume PDF right now!</p>
+    </mat-list-item>
+    <mat-list-item role="listitem" (click)="email()">
+      <mat-icon mat-list-icon>email</mat-icon>
+      <h4 mat-line>Email</h4>
+      <p mat-line>Resume attached on email</p>
+    </mat-list-item>
+  </mat-list>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
