@@ -52,7 +52,7 @@
                [pattern]="phonePattern"
                #phone="ngModel">
         <mat-hint>Phone number with country code.</mat-hint>
-        <div *ngIf="contactForm.submitted && name.invalid">
+        <div *ngIf="contactForm.submitted && phone.invalid">
           <mat-error *ngIf="phone.errors.required">
             Phone is <strong>required</strong>
           </mat-error>

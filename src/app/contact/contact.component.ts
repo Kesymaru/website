@@ -10,19 +10,19 @@ import * as emailjs from 'emailjs-com';
 })
 
 export class ContactComponent {
-  private USER_ID:string = 'user_9LIbRrL6eeuSEmW4ZiCQw';
-  private TOKEN:string = '3f4643d0945716a86f8319f7b47a8b67';
-  private SERVICE_ID:string = 'gmail';
-  private TEMPLATE_ID:string = 'test_4';
+  private USER_ID : string = 'user_9LIbRrL6eeuSEmW4ZiCQw';
+  private TOKEN : string = '3f4643d0945716a86f8319f7b47a8b67';
+  private SERVICE_ID : string = 'gmail';
+  private TEMPLATE_ID : string = 'test_4';
 
-  public data:ContactModel = new ContactModel();
-  public phonePattern:string = '((?:\\+|00)[17](?: |\\-)?|(?:\\+|00)[1-9]\\d{0,2}(?: |\\-)?|(?:\\+|00)1\\-\\d{3}(?: |\\-)?)?(0\\d|\\([0-9]{3}\\)|[1-9]{0,3})(?:((?: |\\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\\-)[0-9]{3}(?: |\\-)[0-9]{4})|([0-9]{7}))';
+  public data : ContactModel = new ContactModel();
+  public phonePattern : string = '((?:\\+|00)[17](?: |\\-)?|(?:\\+|00)[1-9]\\d{0,2}(?: |\\-)?|(?:\\+|00)1\\-\\d{3}(?: |\\-)?)?(0\\d|\\([0-9]{3}\\)|[1-9]{0,3})(?:((?: |\\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\\-)[0-9]{3}(?: |\\-)[0-9]{4})|([0-9]{7}))';
 
   constructor(public snackBar: MatSnackBar){
     emailjs.init(this.USER_ID);
   }
 
-  onSubmit():void {
+  onSubmit() : void {
     console.log("send email", this.data);
 
     if(this.data.sendResume) this.sendResume();
@@ -41,7 +41,7 @@ export class ContactComponent {
     this.openSnackBar('Contact email sent!');
   }
 
-  private sendResume():void {
+  private sendResume() : void {
     console.log('send resume to email');
   }
 
