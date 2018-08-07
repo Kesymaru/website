@@ -1,6 +1,16 @@
 <mat-toolbar color="primary">
+  <!--<mat-toolbar-row class="justify-content-center">-->
+    <!--<span>Footer content goes here</span>-->
+
+  <!--</mat-toolbar-row>-->
   <mat-toolbar-row class="justify-content-center">
-    <span>Footer content goes here</span>
+    <form name="getResume">
+      <mat-form-field color="accent" style="min-width: 250px;">
+        <mat-label>Get Resume by Email</mat-label>
+        <input matInput name="email" type="text" placeholder="Email">
+        <mat-icon matSuffix>send</mat-icon>
+      </mat-form-field>
+    </form>
   </mat-toolbar-row>
   <mat-toolbar-row class="justify-content-center">
     <span>&copy; {{ year }} - All Rights Reserved.</span>
