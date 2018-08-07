@@ -53,7 +53,7 @@ export class ContactComponent {
     console.log('open notification');
 
     this.snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
     });
   }
 

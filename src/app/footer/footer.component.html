@@ -7,8 +7,12 @@
     <form name="getResume">
       <mat-form-field color="accent" style="min-width: 250px;">
         <mat-label>Get Resume by Email</mat-label>
-        <input matInput name="email" type="text" placeholder="Email">
-        <mat-icon matSuffix>send</mat-icon>
+        <input matInput
+               [(ngModel)]="email"
+               name="email"
+               type="text"
+               placeholder="Email">
+        <mat-icon matSuffix (click)="submit()">send</mat-icon>
       </mat-form-field>
     </form>
   </mat-toolbar-row>
