@@ -46,7 +46,7 @@ export class ExperienceComponent{
 
   constructor() {}
 
-  toggleMore() {
+  toggleMore(): void {
     this.showMore = !this.showMore;
     this.end = this.showMore
       ? this.experiences.length

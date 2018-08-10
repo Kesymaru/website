@@ -117,6 +117,7 @@ export class AppComponent implements OnInit {
 export interface Menu {
   icon: string,
   title: string,
+  router: string,
 }
 
 export interface SidenavConfig {

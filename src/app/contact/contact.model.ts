@@ -5,7 +5,7 @@ export class ContactModel{
   public subject: string = '';
   public message: string = '';
   public sendResume: boolean = false;
-  public sendResume: string = '';
+  public date: string;
 
   constructor(){
     this.date = new Date().toString();

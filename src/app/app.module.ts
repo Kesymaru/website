@@ -30,7 +30,7 @@ import { ResumeDialog } from "./resumeDialog/resumeDialog.component";
     SkillsComponent,
     ExperienceComponent,
     FooterComponent,
-    // FabComponent,
+    FabComponent,
     ResumeDialog
   ],
   imports: [

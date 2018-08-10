@@ -11,7 +11,7 @@ export class AboutComponent {
 
   constructor(
     public dialog: MatDialog
-  ): void {}
+  ) {}
 
   getResume(): void {
     const dialogConfig = new MatDialogConfig();
