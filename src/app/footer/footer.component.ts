@@ -8,10 +8,13 @@ import { MatSnackBar } from '@angular/material';
 })
 
 export class FooterComponent {
-  public email:string = '';
-  public year:number = new Date().getFullYear();
+  public email:string;
+  public year:number;
 
-  constructor(public snackBar: MatSnackBar){}
+  constructor(public snackBar: MatSnackBar){
+    this.email = '';
+    this.year = new Date().getFullYear();
+  }
 
   public submit():void {
     console.log('submit', this.email);
