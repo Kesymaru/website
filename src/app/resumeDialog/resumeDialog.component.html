@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Andrey`s Resume</h2>
+<h2 mat-dialog-title>
+  Andrey`s Resume
+</h2>
 <mat-dialog-content>
-  How do you want to get my resume?
-
-  <mat-list role="list">
+  <!--<mat-list role="list">
     <mat-list-item role="listitem" (click)="download()">
       <mat-icon mat-list-icon>file_download</mat-icon>
       <h4 mat-line>Download</h4>
@@ -13,9 +13,63 @@
       <h4 mat-line>Email</h4>
       <p mat-line>Resume attached on email</p>
     </mat-list-item>
-  </mat-list>
+  </mat-list>-->
+
+
+
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>file_download</mat-icon>
+        Download
+      </ng-template>
+      <p>Download the resume</p>
+      <div class="row no-gutters">
+        <div class="col-6">
+          <button mat-raised-button type="submit" color="primary">
+            <mat-icon (click)="download()">file_download</mat-icon>Download
+          </button>
+        </div>
+        <div class="col-6" style="text-align: right">
+          <button mat-raised-button>
+            <mat-icon (click)="close()">close</mat-icon>Close
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>email</mat-icon>
+        Email
+      </ng-template>
+      <p>Get the resume attached to your email</p>
+      <form name="getResume">
+        <mat-form-field>
+          <input matInput
+                 [(ngModel)]="email"
+                 name="email"
+                 type="text"
+                 placeholder="Email">
+        </mat-form-field>
+        <div class="row no-gutters">
+          <div class="col-6">
+            <button mat-raised-button type="submit" color="primary">
+              <mat-icon matSuffix (click)="submit()">send</mat-icon>Send
+            </button>
+          </div>
+          <div class="col-6" style="text-align: right">
+            <button mat-raised-button>
+              <mat-icon (click)="close()">close</mat-icon>Close
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+
+  </mat-tab-group>
 
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions>
+<!--<mat-dialog-actions>-->
+  <!--<button mat-button mat-dialog-close>Close</button>-->
+<!--</mat-dialog-actions>-->

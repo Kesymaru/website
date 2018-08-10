@@ -1,26 +1,21 @@
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: './resumeDialog.component.html',
 })
-export class ResumeDialog {
+export class ResumeDialog implements OnInit {
+
+  public email: string = '';
 
   constructor(
     public dialogRef: MatDialogRef<ResumeDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ): void {}
 
-  public onNoClick(): void {
+
+  public close(): void{
     this.dialogRef.close();
-  }
-
-  public download(): void {
-    console.log("download resume")
-  }
-
-  public email(): void{
-    console.log("email")
   }
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule} from '@angular/cdk/overlay';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { routes } from './app-routing.module';
 import { MaterialModule } from './material.module';
@@ -39,6 +39,7 @@ import { ResumeDialog } from "./resumeDialog/resumeDialog.component";
     OverlayModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
 
     RouterModule.forRoot(routes),
   ],

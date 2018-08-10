@@ -17,7 +17,8 @@ import {
   MatProgressBarModule,
   MatCheckboxModule,
   MatSnackBarModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatTabsModule,
 } from '@angular/material';
 
 const imports = [
@@ -37,7 +38,8 @@ const imports = [
   MatProgressBarModule,
   MatCheckboxModule,
   MatSnackBarModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatTabsModule,
 ];
 
 @NgModule({
