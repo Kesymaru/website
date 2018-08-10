@@ -11,11 +11,24 @@ export class ResumeDialog {
 
   constructor(
     public dialogRef: MatDialogRef<ResumeDialog>,
-    // @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-
+  /**
+   * Close the model
+   */
   public close(): void{
     this.dialogRef.close();
+  }
+
+  /**
+   * Download the resume file
+   */
+  public download(): void{
+
+  }
+
+  public sendEmeil(): void{
+
   }
 }
